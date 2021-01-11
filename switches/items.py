@@ -5,6 +5,17 @@
 
 import scrapy
 
+class Product(scrapy.Item):
+    name = Field()
+    price = Field()
+    source = Field()
+    url = Field()
+    status = Field()
+    
+class EbayProduct(Product):
+    stars = Field()
+    ratings = Field()
+
 
 class SwitchesItem(scrapy.Item):
     # define the fields for your item here like:

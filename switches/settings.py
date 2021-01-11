@@ -12,13 +12,13 @@ BOT_NAME = 'switches'
 SPIDER_MODULES = ['switches.spiders']
 NEWSPIDER_MODULE = 'switches.spiders'
 
-FEEDS = {
-    'switches.json': {
-        'format': 'json',
-    }
-}
+# FEEDS = {
+#     'switches.json': {
+#         'format': 'json',
+#     }
+# }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'switches (+http://www.yourdomain.com)'
+USER_AGENT = 'switches (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.3)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False

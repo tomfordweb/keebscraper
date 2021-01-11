@@ -3,12 +3,12 @@ import scrapy
 
 class EbaySpider(scrapy.Spider):
 	
-	name = "ebay-switches"
+	name = "ebay-search"
 	allowed_domains = ["ebay.com"]
 	start_urls = ["https://www.ebay.com"]
 
 	# Allow a custom parameter (-a flag in the scrapy command)
-	def __init__(self, search="nintendo switch console"):
+	def __init__(self, search=""):
 		self.search_string = search
 
 	def parse(self, response):
@@ -39,7 +39,6 @@ class EbaySpider(scrapy.Spider):
 			# If this get a None result
 			if name == None:
 				name = "ERROR"
-
 			price = product.xpath('.//*[@class="s-item__price"]/text()').extract_first()
 			status = product.xpath('.//*[@class="SECONDARY_INFO"]/text()').extract_first()
 			seller_level = product.xpath('.//*[@class="s-item__etrs-text"]/text()').extract_first()
@@ -58,6 +57,7 @@ class EbaySpider(scrapy.Spider):
 			summary_data = {
 							"Name":name,
 							"Source": self.name,
+							"Query": self.search,
 							"Status":status,
 							#"Seller_Level":seller_level,
 							#"Location":location,
