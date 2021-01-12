@@ -1,4 +1,4 @@
-# Scrapy settings for switches project
+# Scrapy settings for scraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,18 +7,18 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'switches'
+BOT_NAME = 'scraper'
 
-SPIDER_MODULES = ['switches.spiders']
-NEWSPIDER_MODULE = 'switches.spiders'
+SPIDER_MODULES = ['scraper.spiders']
+NEWSPIDER_MODULE = 'scraper.spiders'
 
 # FEEDS = {
-#     'switches.json': {
+#     'scraper.json': {
 #         'format': 'json',
 #     }
 # }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'switches (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.3)'
+USER_AGENT = 'scraper (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.3)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -49,13 +49,13 @@ DOWNLOAD_DELAY = 5
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'switches.middlewares.SwitchesSpiderMiddleware': 543,
+#    'scraper.middlewares.ScraperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'switches.middlewares.SwitchesDownloaderMiddleware': 543,
+#    'scraper.middlewares.ScraperDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -66,9 +66,14 @@ DOWNLOAD_DELAY = 5
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'switches.pipelines.SwitchesPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   # Cleanup and item rejections
+   'scraper.pipelines.KbdFansPipeline': 50,
+   # Global Item pipeline
+   'scraper.pipelines.ScraperItemPipeline': 300,
+   # TODO: Push to mongo
+   # TODO: Send email report
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
