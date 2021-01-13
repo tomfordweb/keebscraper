@@ -12,11 +12,11 @@ BOT_NAME = 'scraper'
 SPIDER_MODULES = ['scraper.spiders']
 NEWSPIDER_MODULE = 'scraper.spiders'
 
-# FEEDS = {
-#     'scraper.json': {
-#         'format': 'json',
-#     }
-# }
+FEEDS = {
+    'scraped-data/scraper.json': {
+        'format': 'json',
+    }
+}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'scraper (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.3)'
 

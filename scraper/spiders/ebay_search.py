@@ -1,6 +1,6 @@
 import scrapy
 
-
+from scraper.items import EbayProduct
 class EbaySpider(scrapy.Spider):
 	
 	name = "ebay-search"
@@ -27,6 +27,7 @@ class EbaySpider(scrapy.Spider):
 
 		# Extract info for each product
 		for product in results:		
+			item = EbayProduct()
 			name = product.xpath('.//*[@class="s-item__title"]//text()').extract_first()
 			# Sponsored or New Listing links have a different class
 			if name == None:
@@ -39,11 +40,13 @@ class EbaySpider(scrapy.Spider):
 			# If this get a None result
 			if name == None:
 				name = "ERROR"
-			price = product.xpath('.//*[@class="s-item__price"]/text()').extract_first()
-			status = product.xpath('.//*[@class="SECONDARY_INFO"]/text()').extract_first()
-			seller_level = product.xpath('.//*[@class="s-item__etrs-text"]/text()').extract_first()
-			location = product.xpath('.//*[@class="s-item__location s-item__itemLocation"]/text()').extract_first()
+			item['name'] = name
+			item['price'] = product.xpath('.//*[@class="s-item__price"]/text()').extract_first()
+			item['status'] = product.xpath('.//*[@class="SECONDARY_INFO"]/text()').extract_first()
+			# seller_level = product.xpath('.//*[@class="s-item__etrs-text"]/text()').extract_first()
+			# location = product.xpath('.//*[@class="s-item__location s-item__itemLocation"]/text()').extract_first()
 			product_url = product.xpath('.//a[@class="s-item__link"]/@href').extract_first()
+			item['url'] = product_url
 
 			# Set default values
 			stars = 0
@@ -53,43 +56,24 @@ class EbaySpider(scrapy.Spider):
 			if stars_text: stars = stars_text[:3]
 			ratings_text = product.xpath('.//*[@aria-hidden="true"]/text()').extract_first()
 			if ratings_text: ratings = ratings_text.split(' ')[0]
-
-			summary_data = {
-							"Name":name,
-							"Source": self.name,
-							"Query": self.search,
-							"Status":status,
-							#"Seller_Level":seller_level,
-							#"Location":location,
-							"Price":price,
-							"Stars":stars,
-							"Ratings":ratings,
-							"URL": product_url
-							}
+			item['stars'] = stars
+			item['ratings'] = ratings
 
 			# Go to the product details page
-			data = {'summary_data': summary_data}
-			yield scrapy.Request(product_url, meta=data, callback=self.parse_product_details)
+			data = {'summary_data': item}
+			if product_url != None:
+				yield item
+				# yield scrapy.Request(product_url, meta=data, callback=self.parse_product_details)
 
 		# Get the next page
-		next_page_url = response.xpath('//*/a[@class="x-pagination__control"][2]/@href').extract_first()
-
-		# The last page do not have a valid url and ends with '#'
-		if next_page_url == None or str(next_page_url).endswith("#"):
-			self.log("eBay products collected successfully !!!")
-		else:
-			print('\n'+'-'*30)
-			print('Next page: {}'.format(next_page_url))
+		next_page_url = response.xpath('//a[@class="pagination__next"]/@href').extract_first()
+		if next_page_url != None and False == str(next_page_url).endswith("#"):
 			yield scrapy.Request(next_page_url, callback=self.parse_link)
-
 
 	# Parse details page for each product
 	def parse_product_details(self, response):
+		data = response.meta['item']
 
-		# Get the summary data
-		data = response.meta['summary_data']
-
-		# Add more data from details page
-		data['UPC'] = response.xpath('//h2[@itemprop="gtin13"]/text()').extract_first()
+		data['unique_identifier'] = response.xpath('//h2[@itemprop="gtin13"]/text()').extract_first()
 
 		yield data

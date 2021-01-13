@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: scraper.Dockerfile
-    entrypoint: ["scrapy"]
+    # entrypoint: ["scrapy"]
     volumes:
       - ./scrapy.cfg:/app/scrapy.cfg
       - ./scraper:/app/scraper
