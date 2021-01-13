@@ -5,4 +5,4 @@ COPY ./scrapy.cfg /app
 COPY ./scraper /app 
 COPY ./spiders.py /app 
 
-ENTRYPOINT ["python", "-u", "spiders.py"]
+ENTRYPOINT ["python", "-u"]
