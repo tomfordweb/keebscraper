@@ -1,11 +1,8 @@
 import scrapy
 from urllib.parse import urljoin
 from scraper.items import Product
-"""
-Notes:
-- kbdfans uses absolute urls in their website structure, sou you need to join url's together using urljoin
-- like most sites, they show the sold out and historical products, so we are excluding sold and ended group buys.
-"""
+
+
 class KbdFansScraper(scrapy.Spider):
     name = "kbdfans"
     allowed_domains = ["kbdfans.com"]
@@ -29,15 +26,15 @@ class KbdFansScraper(scrapy.Spider):
 
             data = {'item': product}
 
-            # yield product
-            yield scrapy.Request(product_url, meta=data, callback=self.parse_detail_page)
+            yield product
+            # yield scrapy.Request(product_url, meta=data, callback=self.parse_detail_page)
 
         # Process pagination links 
-        next_page_link = response.xpath("//div[@class='pagination']//span[@class='next']/a/@href").extract_first()
-        next_page_link = urljoin(response.url, next_page_link)
+        # next_page_link = response.xpath("//div[@class='pagination']//span[@class='next']/a/@href").extract_first()
+        # next_page_link = urljoin(response.url, next_page_link)
 
-        if next_page_link != None:
-            yield scrapy.Request(next_page_link, callback=self.parse)
+        # if next_page_link != None:
+        #     yield scrapy.Request(next_page_link, callback=self.parse)
 
     def parse_detail_page(self, response):
         product = response.meta['item']

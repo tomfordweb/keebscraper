@@ -1,9 +1,6 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
+from itemloaders.processors import Join, MapCompose, TakeFirst
+from w3lib.html import remove_tags
 
 class Product(scrapy.Item):
     scraper_source = scrapy.Field()

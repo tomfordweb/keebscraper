@@ -8,11 +8,32 @@
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 
+import pymongo
 
-class ScraperItemPipeline:
+class MongoProductPipeline:
+    COLLECTION_NAME = 'products'
+
+    def __init__(self):
+        connection = pymongo.MongoClient(
+            'mongo',
+            username='root',
+            password='example'
+        )
+        db = connection[
+            'keebs'
+        ]
+        self.collection = db['products']
+
     def process_item(self, item, spider):
-        return item
+        self.collection.insert(dict(item))
 
+
+class EbaySearchPipeline:
+    def process_item(self, item, spider):
+        if spider.name != "ebay-search":
+            return item
+        
+        return item
 
 class KbdFansPipeline:
     ignored_product_statuses = [
@@ -35,3 +56,4 @@ class KbdFansPipeline:
 
         item['scraper_source'] = spider.name
         return item
+

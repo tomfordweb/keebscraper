@@ -10,7 +10,8 @@ services:
       - ./scrapy.cfg:/app/scrapy.cfg
       - ./scraper:/app/scraper
       - ./spiders.py:/app/spiders.py
-
+    depends_on:
+      - "mongo"
   mongo:
     image: mongo
     restart: always
