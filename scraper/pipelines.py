@@ -1,4 +1,4 @@
-# Define your item pipelines here
+nest js# Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
@@ -14,6 +14,7 @@ class MongoProductPipeline:
     COLLECTION_NAME = 'products'
 
     def __init__(self):
+        s
         connection = pymongo.MongoClient(
             'mongo',
             username='root',
