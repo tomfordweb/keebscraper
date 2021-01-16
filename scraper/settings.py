@@ -12,11 +12,11 @@ BOT_NAME = 'scraper'
 SPIDER_MODULES = ['scraper.spiders']
 NEWSPIDER_MODULE = 'scraper.spiders'
 
-FEEDS = {
-    'scraped-data/scraper.json': {
-        'format': 'json',
-    }
-}
+# FEEDS = {
+#     'scraped-data/scraper.json': {
+#         'format': 'json',
+#     }
+# }
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'scraper (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.3)'
 
@@ -75,7 +75,6 @@ DOWNLOAD_DELAY = 5
 ITEM_PIPELINES = {
    # Cleanup and item rejections
    'scraper.pipelines.KbdFansPipeline': 50,
-   'scraper.pipelines.EbaySearchPipeline': 50,
    # Global Item pipeline
    'scraper.pipelines.MongoProductPipeline': 300,
    # TODO: Push to mongo

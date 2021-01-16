@@ -1,10 +1,3 @@
-nest js# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
-
-# useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 
@@ -14,9 +7,8 @@ class MongoProductPipeline:
     COLLECTION_NAME = 'products'
 
     def __init__(self):
-        s
         connection = pymongo.MongoClient(
-            'mongo',
+            'mongo1',
             username='root',
             password='example'
         )
@@ -31,9 +23,6 @@ class MongoProductPipeline:
 
 class EbaySearchPipeline:
     def process_item(self, item, spider):
-        if spider.name != "ebay-search":
-            return item
-        
         return item
 
 class KbdFansPipeline:

@@ -5,7 +5,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-COPY assets components layouts middleware pages plugins static store test  ./
 
-COPY .babelrc jest.config.js jsconfig.json ./
+COPY . ./
 EXPOSE 5000

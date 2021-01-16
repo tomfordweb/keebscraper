@@ -1,6 +1,5 @@
 import scrapy
 from itemloaders.processors import Join, MapCompose, TakeFirst
-from w3lib.html import remove_tags
 
 class Product(scrapy.Item):
     scraper_source = scrapy.Field()
