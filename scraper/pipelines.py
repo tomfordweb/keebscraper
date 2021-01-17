@@ -1,25 +1,26 @@
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
+from elasticsearch import Elasticsearch
+import hashlib
 
-import pymongo
-
-class MongoProductPipeline:
+class ElasticsearchPipeline:
     COLLECTION_NAME = 'products'
 
     def __init__(self):
-        connection = pymongo.MongoClient(
-            'mongo1',
-            username='root',
-            password='example'
+        self.es = Elasticsearch(
+            ["es01","es02","es03"]
         )
-        db = connection[
-            'keebs'
-        ]
-        self.collection = db['products']
 
     def process_item(self, item, spider):
-        self.collection.insert(dict(item))
+        self.es.index(index=self.COLLECTION_NAME, id=urlHash, body=dict(item))
 
+
+class ProductPipeline:
+    def process_item(self, item, spider):
+        # Create a unique ID of the product so we can keep it up to date.
+        item['id'] = hashlib.md5(item['url'].encode()).hexdigest()
+
+        return item
 
 class EbaySearchPipeline:
     def process_item(self, item, spider):
@@ -31,7 +32,6 @@ class KbdFansPipeline:
     ]
 
     ignored_product_title_contains = [
-        "[IC]", # Interest check
     ]
     def process_item(self, item, spider):
         # Only handle items scraped from kbdfans

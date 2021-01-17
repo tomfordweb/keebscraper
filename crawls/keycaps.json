@@ -1,0 +1,15 @@
+{
+  "job": "switches",
+  "meta": {
+    "category": ["keycap"]
+  },
+  "crawls": [
+    {
+      "url": "https://kbdfans.com/collections/cherry-profile",
+      "spider": "kbdfans",
+      "meta": {
+        "category": ["cherry profile"]
+      }
+    }
+  ]
+}

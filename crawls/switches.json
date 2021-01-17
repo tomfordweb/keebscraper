@@ -1,0 +1,35 @@
+{
+  "job": "switches",
+  "crawls": [
+    {
+      "url": "https://kbdfans.com/collections/aliaz-switches",
+      "spider": "kbdfans",
+      "meta": { "category": ["aliaz"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/cherry-switches",
+      "spider": "kbdfans",
+      "meta": { "category": ["cherry"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/gateron-swithes",
+      "spider": "kbdfans",
+      "meta": { "category": ["gatreon"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/kailh-switches",
+      "spider": "kbdfans",
+      "meta": { "category": ["kailh"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/switches-tester",
+      "spider": "kbdfans",
+      "meta": { "category": ["switch tester"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/zealios-switches",
+      "spider": "kbdfans",
+      "meta": { "category": ["zealios"] }
+    }
+  ]
+}

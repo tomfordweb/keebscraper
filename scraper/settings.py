@@ -23,12 +23,6 @@ USER_AGENT = 'scraper (+Mozilla/5.0 (Linux; Android 6.0; HTC One M9 Build/MRA58K
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-# MONGODB_HOST = 'mongo'
-# MONGODB_PORT = '27017'
-# MONGODB_USER = 'root'
-# MONGODB_PASSWORD = 'example'
-# MONGODB_DB = 'keebs'
-
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -76,7 +70,8 @@ ITEM_PIPELINES = {
    # Cleanup and item rejections
    'scraper.pipelines.KbdFansPipeline': 50,
    # Global Item pipeline
-   'scraper.pipelines.MongoProductPipeline': 300,
+   'scraper.pipelines.ProductPipeline': 150
+   # 'scraper.pipelines.ElasticsearchPipeline': 300,
    # TODO: Push to mongo
    # TODO: Send email report
 }
