@@ -7,6 +7,7 @@ class KbdFansScraper(scrapy.Spider):
     name = "kbdfans"
     allowed_domains = ["kbdfans.com"]
 
+    # TODO: Abstract to shared parent spider
     def __init__(self, *args, **kwargs):
         super(KbdFansScraper, self).__init__(*args, **kwargs) 
 

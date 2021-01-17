@@ -32,9 +32,11 @@ def runSpiders(file):
 
     for job in files:
         with open(f"/app/crawls/{job}.json") as f:
+            # TODO Turn data into an object, so it can be validated. Scraper parent should check the instacnce
+            # of what I am passing to the config VO
             data = json.load(f)
             crawler = data['job']
-            shared_meta = data['meta']
+            shared_meta = data.get('meta', {"categories": []})
 
             for crawl in data['crawls']:
                 process.crawl(

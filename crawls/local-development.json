@@ -1,0 +1,12 @@
+{
+  "job": "local",
+  "crawls": [
+    {
+      "url": "https://www.wasdkeyboards.com/products/keycaps/keycap-set.html",
+      "spider": "wasd",
+      "meta": {
+        "categories": []
+      }
+    }
+  ]
+}

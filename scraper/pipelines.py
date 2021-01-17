@@ -14,7 +14,6 @@ class ElasticsearchPipeline:
     def process_item(self, item, spider):
         self.es.index(index=self.COLLECTION_NAME, id=urlHash, body=dict(item))
 
-
 class ProductPipeline:
     def process_item(self, item, spider):
         # Create a unique ID of the product so we can keep it up to date.
@@ -22,13 +21,10 @@ class ProductPipeline:
 
         return item
 
-class EbaySearchPipeline:
-    def process_item(self, item, spider):
-        return item
 
 class KbdFansPipeline:
     ignored_product_statuses = [
-        "Sold Out"
+        # "Sold Out"
     ]
 
     ignored_product_title_contains = [

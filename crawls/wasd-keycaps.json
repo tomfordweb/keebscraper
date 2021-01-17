@@ -1,0 +1,33 @@
+{
+  "job": "wasd-keycaps",
+  "crawls": [
+    {
+      "url": "https://www.wasdkeyboards.com/products/keycaps/keycap-set.html",
+      "spider": "wasd",
+      "meta": {
+        "categories": []
+      }
+    },
+
+    {
+      "url": "https://www.wasdkeyboards.com/products/keycaps/keycap-mod-packs.html",
+      "spider": "wasd",
+      "meta": { "categories": [] }
+    },
+    {
+      "url": "https://www.wasdkeyboards.com/products/keycaps/printed-keycap-singles.html",
+      "spider": "wasd",
+      "meta": { "categories": [] }
+    },
+    {
+      "url": "https://www.wasdkeyboards.com/products/keycaps/blank-keycap-singles.html",
+      "spider": "wasd",
+      "meta": { "categories": [] }
+    },
+    {
+      "url": "https://www.wasdkeyboards.com/products/make/keycaps.html",
+      "spider": "wasd",
+      "meta": { "categories": [] }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "job": "kbdfans-keycaps",
+  "meta": {
+    "category": ["keycap"]
+  },
+  "crawls": [
+    {
+      "url": "https://kbdfans.com/collections/cherry-profile",
+      "spider": "kbdfans",
+      "meta": {
+        "category": ["cherry", "cherry profile"]
+      }
+    },
+    {
+      "url": "https://kbdfans.com/collections/sa-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["sa"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/kat-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["kat"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/sa-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["sa"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/dsa-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["dsa"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/np-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["np"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/da-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["da"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/electrostatic-capacitive-keycaps",
+      "spider": "kbdfans",
+      "meta": {
+        "category": ["ec", "electrostatic cacpacitive", "topre", "hhkb"]
+      }
+    },
+    {
+      "url": "https://kbdfans.com/collections/oem-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["oem"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/osa-profile",
+      "spider": "kbdfans",
+      "meta": { "category": ["osa"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/artisan-keycaps",
+      "spider": "kbdfans",
+      "meta": { "category": ["artisan"] }
+    },
+    {
+      "url": "https://kbdfans.com/collections/backlit-keycaps",
+      "spider": "kbdfans",
+      "meta": { "category": ["backlit", "shine through"] }
+    }
+  ]
+}

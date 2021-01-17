@@ -1,6 +1,21 @@
+# Scraping Data
+
+To scrape data, run a crawl file. This is the filename of the json file in the crawls folder excluding the path.
+
+```
+docker-compose run
+```
+
+## Local Development
+
+To find the xpaths, you can debug with the scrapy shell like so.
+
+```
+docker-compose run --entrypoint scrapy scraper shell <some-url>
+```
+
 # keycaps
 
-- https://www.1upkeyboards.com/
 - https://www.banggood.com/buy/keycap.html <-- affiliate
 - https://shopkey.doyustudio.com/
 - https://flashquark.com/product-category/keycaps/
@@ -17,6 +32,5 @@
 - https://thekey.company/collections/keycaps
 - https://www.keyboardco.com/type/mechanical-keyboard-keycaps-and-keysets.asp
 - http://www.ukkeycaps.co.uk/category/keycaps
-- https://www.wasdkeyboards.com/products/keycaps/keycap-set.html
 - https://zealpc.net/collections/all-products
 - https://en.zfrontier.com/

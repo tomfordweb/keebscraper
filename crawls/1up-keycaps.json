@@ -1,0 +1,45 @@
+{
+  "job": "1up-keycaps",
+  "meta": {
+    "category": ["keycap"]
+  },
+  "crawls": [
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keycaps-keycaps/",
+      "spider": "1up",
+      "meta": {
+        "categories": []
+      }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/np/",
+      "spider": "1up",
+      "meta": { "categories": ["np"] }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/topre/",
+      "spider": "1up",
+      "meta": { "categories": ["electrostatic capacitive", "topre", "hhkb"] }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/enjoypbt/",
+      "spider": "1up",
+      "meta": { "categories": ["enjoypbt"] }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/maxkey/",
+      "spider": "1up",
+      "meta": { "categories": ["maxkey"] }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/abs/",
+      "spider": "1up",
+      "meta": { "categories": ["abs"] }
+    },
+    {
+      "url": "https://www.1upkeyboards.com/product-category/keycaps/keysets/pbt/",
+      "spider": "1up",
+      "meta": { "categories": ["pbt"] }
+    }
+  ]
+}
