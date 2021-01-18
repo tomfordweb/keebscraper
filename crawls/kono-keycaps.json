@@ -1,0 +1,12 @@
+{
+  "job": "kono-keycaps",
+  "crawls": [
+    {
+      "url": "https://kono.store/collections/all-products-list/keycaps?grid_list=grid-view",
+      "spider": "kono",
+      "meta": {
+        "categories": []
+      }
+    }
+  ]
+}

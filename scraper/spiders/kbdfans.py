@@ -30,15 +30,14 @@ class KbdFansScraper(scrapy.Spider):
             product['source'] = response.url
             product['url'] = product_url
             product['status'] = html.xpath('./div/text()').extract_first(default="N/A").strip()
-            # data = {'item': product}
-            yield product
-        #     yield scrapy.Request(product_url, meta=data, callback=self.parse_detail_page)
+            data = {'item': product}
+            yield scrapy.Request(product_url, meta=data, callback=self.parse_detail_page)
 
-        # next_page_link = response.xpath("//div[@class='pagination']//span[@class='next']/a/@href").extract_first()
-        # next_page_link = urljoin(response.url, next_page_link)
+        next_page_link = response.xpath("//div[@class='pagination']//span[@class='next']/a/@href").extract_first()
+        next_page_link = urljoin(response.url, next_page_link)
 
-        # if next_page_link != None:
-        #     yield scrapy.Request(next_page_link, callback=self.parse)
+        if next_page_link != None:
+            yield scrapy.Request(next_page_link, callback=self.parse)
 
     def parse_detail_page(self, response):
         product = response.meta['item']

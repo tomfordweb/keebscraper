@@ -17,10 +17,8 @@ docker-compose run --entrypoint scrapy scraper shell <some-url>
 # keycaps
 
 - https://www.banggood.com/buy/keycap.html <-- affiliate
-- https://shopkey.doyustudio.com/
-- https://flashquark.com/product-category/keycaps/
+  https://shopkey.doyustudio.com/
 - https://dailyclack.com/collections/keycaps <-- aus only?
-- https://kono.store/collections/keycap-sets
 - https://kprepublic.com/collections/keycaps
 - https://www.maxkeyboard.com/shop/cherry-mx-keycaps/
 - https://mechanicalkeyboards.com/

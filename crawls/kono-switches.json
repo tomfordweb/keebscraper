@@ -1,0 +1,12 @@
+{
+  "job": "kono-switches",
+  "crawls": [
+    {
+      "url": "https://kono.store/collections/all-products-list/switches?grid_list=grid-view",
+      "spider": "kono",
+      "meta": {
+        "categories": []
+      }
+    }
+  ]
+}
