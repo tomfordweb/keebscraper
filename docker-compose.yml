@@ -10,17 +10,17 @@ services:
     networks:
       - elastic
 
-  frontend:
-    container_name: frontend
-    build:
-      context: ./frontend
-      dockerfile: frontend.Dockerfile
-    entrypoint: ["npm", "run", "dev"]
-    environment:
-      NUXT_HOST: 0.0.0.0
-      NUXT_PORT: 5000
-    ports:
-      - 5000:5000
+  # frontend:
+  #   container_name: frontend
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: frontend.Dockerfile
+  #   entrypoint: ["npm", "run", "dev"]
+  #   environment:
+  #     NUXT_HOST: 0.0.0.0
+  #     NUXT_PORT: 5000
+  #   ports:
+  #     - 5000:5000
 
   scraper:
     build:
@@ -34,89 +34,6 @@ services:
       - ./scraper:/app/scraper
       - ./crawls:/app/crawls
       - ./crawl.py:/app/crawl.py
-
-  # mongo1:
-  #   hostname: mongo1
-  #   container_name: mongo1
-  #   environment:
-  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
-  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
-  #   networks:
-  #     - mongo-network
-  #     - transport-network
-  #   image: mongo:3.6-jessie
-  #   expose:
-  #     - 27017
-  #   restart: always
-  #   volumes:
-  #     - mongo1:/data/db
-  #   entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0"]
-
-  # mongo2:
-  #   hostname: mongo2
-  #   container_name: mongo2
-  #   image: mongo:3.6-jessie
-  #   environment:
-  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
-  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
-  #   networks:
-  #     - mongo-network
-  #   expose:
-  #     - 27017
-  #   restart: always
-  #   volumes:
-  #     - mongo2:/data/db
-  #   entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0"]
-
-  # mongo3:
-  #   hostname: mongo3
-  #   container_name: mongo3
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: root
-  #     MONGO_INITDB_ROOT_PASSWORD: example
-  #   networks:
-  #     - mongo-network
-  #   image: mongo:3.6-jessie
-  #   expose:
-  #     - 27017
-  #   restart: always
-  #   volumes:
-  #     - mongo3:/data/db
-  #   entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0"]
-
-  # mongosetup:
-  #   image: mongo:3.6-jessie
-  #   links:
-  #     - mongo1:mongo1
-  #     - mongo2:mongo2
-  #     - mongo3:mongo3
-  #   depends_on:
-  #     - mongo1
-  #     - mongo2
-  #     - mongo3
-  #   networks:
-  #     - mongo-network
-  #   volumes:
-  #     - ./mongo:/scripts
-  #   restart: "no"
-  #   entrypoint: ["bash", "/scripts/mongo_setup.sh"]
-
-  # mongo-express:
-  #   networks:
-  #     - mongo-network
-  #   depends_on:
-  #     - mongo1
-  #     - mongo2
-  #     - mongo3
-  #     - mongosetup
-  #   image: mongo-express
-  #   restart: always
-  #   ports:
-  #     - 8081:8081
-  #   environment:
-  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
-  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
-  #     ME_CONFIG_MONGODB_SERVER: mongo1,mongo2,mongo3
 
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
