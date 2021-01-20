@@ -22,6 +22,7 @@ before_script:
 build:
   stage: build
   script:
-    - sed -i "s/%%REGISTRY_PATH%%/$CI_REGISTRY_IMAGE/"  docker-compose.feature.yml
+    # Because we are using slashes to denote the namesapce, we need to change the sed seperator
+    - sed -i "s~^%%REGISTRY_PATH%%~$CI_REGISTRY_IMAGE~"  docker-compose.feature.yml
     - cat docker-compose.feature.yml
     - docker-compose -f docker-compose.yml -f docker-compose.feature.yml build
