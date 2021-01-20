@@ -1,0 +1,19 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+  - apk update
+  - apk upgrade
+  - apk add python python-dev py-pip build-base
+  - pip install docker-compose docker
+
+build:
+  stage: build
+  script:
+    - docker-compose -f docker-compose.test.yml build
