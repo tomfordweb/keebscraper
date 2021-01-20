@@ -22,5 +22,6 @@ before_script:
 build:
   stage: build
   script:
-    - sed -i "s/__REGISTRY_PATH__/$REGISTRY_PATH
+    - sed -i "s/%%REGISTRY_PATH%%/$CI_REGISTRY_IMAGE/"  docker-compose.feature.yml
+    - cat docker-compose.feature.yml
     - docker-compose -f docker-compose.yml -f docker-compose.feature.yml build
