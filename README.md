@@ -1,5 +1,3 @@
-.......
-
 # Scraping Data
 
 To scrape data, run a crawl file. This is the filename of the json file in the crawls folder excluding the path.
