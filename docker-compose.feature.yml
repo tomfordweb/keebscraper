@@ -3,3 +3,5 @@ version: "3.7"
 services:
   scraper:
     image: "%%REGISTRY_PATH%%/scraper:latest"
+  frontend:
+    image: "%%REGISTRY_PATH%%/frontend:latest"
