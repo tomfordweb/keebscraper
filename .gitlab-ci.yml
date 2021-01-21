@@ -23,6 +23,8 @@ build:
   stage: build
   script:
     # Because we are using slashes to denote the namesapce, we need to change the sed seperator
-    - sed -i "s~%%REGISTRY_PATH%%~$CI_REGISTRY_IMAGE~"  docker-compose.feature.yml
+    - sed -i "s~%%REGISTRY_PATH%%~$CI_REGISTRY_IMAGE/${CI_COMMIT_REF_NAME}:lastest~"  docker-compose.feature.yml
     - cat docker-compose.feature.yml
     - docker-compose -f docker-compose.yml -f docker-compose.feature.yml build
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker-compose push
