@@ -5,7 +5,7 @@ variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   DOCKER_COMPOSE_BASE: "docker-compose.yml"
 
-include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose-push-to-registry.yml"
+include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose-template.yml"
 
 stages:
   - build
