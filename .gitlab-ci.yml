@@ -19,6 +19,7 @@ cache:
 
 build feature:
   stage: build
+  variables:
+    REGISTRY_PATH: $CI_REGISTRY_IMAGE/feature/${CI_COMMIT_REF_NAME}
   script:
-    # Because we are using slashes to denote the namesapce, we need to change the sed seperator
-    - sed -i "s~%%REGISTRY_PATH%%~$CI_REGISTRY_IMAGE/${CI_COMMIT_REF_NAME}~"  docker-compose.feature.yml
+    - ""
