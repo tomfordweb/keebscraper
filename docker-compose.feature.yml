@@ -2,4 +2,4 @@ version: "3.7"
 
 services:
   scraper:
-    image: "%%REGISTRY_PATH%%/scraper"
+    image: "%%REGISTRY_PATH%%/scraper:latest"
