@@ -9,6 +9,11 @@ stages:
 services:
   - docker:dind
 
+cache:
+  key: ${CI_PROJECT_NAME}
+  paths:
+    - .cache/pip
+
 before_script:
   - docker info
   - apk update
@@ -16,7 +21,7 @@ before_script:
   - apk add curl jq python3 python3-dev build-base libffi-dev libressl-dev gettext
   - curl -O https://bootstrap.pypa.io/get-pip.py
   - python3 get-pip.py
-  # Install python docker image
+  # Install python docker image, this cache is shared for the repo
   - pip install docker-compose
 
 build:
