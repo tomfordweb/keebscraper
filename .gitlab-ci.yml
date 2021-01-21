@@ -2,6 +2,9 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay
+  # You must set the pip cache directory to be inside project dir since we can only
+  # cache local items.
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 stages:
   - build
