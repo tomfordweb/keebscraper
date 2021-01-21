@@ -1,11 +1,11 @@
-image: docker:latest
-
 variables:
   DOCKER_DRIVER: overlay
   # You must set the pip cache directory to be inside project dir since we can only
   # cache local items.
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   DOCKER_COMPOSE_BASE: "docker-compose.yml"
+
+include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose-push-to-registry.yml"
 
 stages:
   - build
@@ -17,10 +17,7 @@ cache:
   paths:
     - .cache/pip
 
-build:
-  variables:
-    DOCKER_COMPOSE_OVERRIDE: "docker-compose.feature.yml"
-  include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose-push-to-registry.yml"
+build feature:
   stage: build
   script:
     # Because we are using slashes to denote the namesapce, we need to change the sed seperator
