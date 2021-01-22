@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  scraper:
+    image: "%%REGISTRY_PATH%%/scraper:%%TAG_APPEND%%"
+
+  frontend:
+    image: "%%REGISTRY_PATH%%/frontend:%%TAG_APPEND%%"
