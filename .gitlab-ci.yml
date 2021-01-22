@@ -20,6 +20,6 @@ cache:
 build feature:
   stage: build
   variables:
-    REGISTRY_PATH: $CI_REGISTRY_IMAGE/feature/${CI_COMMIT_REF_NAME}
+    REGISTRY_PATH: $CI_REGISTRY_IMAGE/feature-${CI_COMMIT_REF_NAME}
   script:
     - ""
