@@ -26,5 +26,5 @@ test feature:
   stage: test
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker-compose  -f ${FEATURE_COMPOSE_FILE} build
-    - docker-compose run -f docker-compose.test.yml frontend
+    - docker-compose  -f ${FEATURE_COMPOSE_FILE} pull
+    - docker-compose run -f docker-compose.test.yml --exit-code-from SERVICE frontend
