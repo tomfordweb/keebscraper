@@ -1,26 +1,4 @@
-variables:
-  DOCKER_DRIVER: overlay
-  # You must set the pip cache directory to be inside project dir since we can only
-  # cache local items.
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  DOCKER_COMPOSE_BASE: "docker-compose.yml"
-
-include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose-template.yml"
-
-stages:
-  - prep
-  - build
-  - test
-
-# This cache is not used by any built images, but is a cache for any python build tools
-# the project needs
-cache:
-  key: ${CI_PROJECT_NAME}
-  paths:
-    - .cache/pip
-build feature:
-  stage: build
-  variables:
+include: "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/compose/docker-compose/template.yml"
 
 test feature:
   stage: test
