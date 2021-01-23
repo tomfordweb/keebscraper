@@ -26,9 +26,11 @@ test feature:
   stage: test
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker-compose  -f ${TEST_COMPOSE_FILE} pull
-    - ls
+    # Hacky, but it doesn't matter since the compose file isnt an artifact in this job
+    # docker-compose run api does not let you specify
+    # custom dockerfiles, it assumes the default docker-compose.yml
     - rm docker-compose.yml
     - cp ${TEST_COMPOSE_FILE} docker-compose.yml
+    - docker-compose pull
+    # Run frontend tests
     - docker-compose run frontend npm run test
-    - echo $?
