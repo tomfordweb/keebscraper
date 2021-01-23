@@ -26,5 +26,9 @@ test feature:
   stage: test
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker-compose  -f ${FEATURE_COMPOSE_FILE} pull
-    - docker-compose run -f docker-compose.test.yml --exit-code-from SERVICE frontend npm run test
+    - docker-compose  -f ${TEST_COMPOSE_FILE} pull
+    - ls
+    - rm docker-compose.yml
+    - cp ${TEST_COMPOSE_FILE} docker-compose.yml
+    - docker-compose run frontend npm run test
+    - echo $?
