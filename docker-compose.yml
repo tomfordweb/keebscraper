@@ -7,7 +7,7 @@ services:
       context: ./frontend
       dockerfile: frontend.Dockerfile
     entrypoint: ["npm", "run"]
-    command: ["start"]
+    command: "start"
     environment:
       NUXT_HOST: 0.0.0.0
       NUXT_PORT: 5000
