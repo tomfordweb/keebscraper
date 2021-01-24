@@ -3,12 +3,12 @@ version: "3.7"
 services:
   scraper:
     image: "%%REGISTRY_PATH%%/scraper:%%TAG_APPEND%%"
-  command: ["start"]
   # deploy:
   #   restart_policy:
   #     condition: no
 
   frontend:
     image: "%%REGISTRY_PATH%%/frontend:%%TAG_APPEND%%"
+    command: ["start"]
     ports:
       - 5001:5000
