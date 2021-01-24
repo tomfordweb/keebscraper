@@ -4,5 +4,5 @@ services:
   frontend:
     image: "%%REGISTRY_PATH%%/frontend:%%TAG_APPEND%%"
 
-  scraper:
-    image: "%%REGISTRY_PATH%%/scraper:%%TAG_APPEND%%"
+  # scraper:
+  #   image: "%%REGISTRY_PATH%%/scraper:%%TAG_APPEND%%"
