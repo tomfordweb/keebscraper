@@ -6,7 +6,7 @@ services:
     build:
       context: ./frontend
       dockerfile: frontend.Dockerfile
-    entrypoint: ["npm", "run", "dev"]
+    command: ["npm", "run", "start"]
     environment:
       NUXT_HOST: 0.0.0.0
       NUXT_PORT: 5000
@@ -18,8 +18,3 @@ services:
       context: .
       dockerfile: scraper.Dockerfile
     command: ["crawl.py", "--help"]
-    volumes:
-      - ./scrapy.cfg:/app/scrapy.cfg
-      - ./scraper:/app/scraper
-      - ./crawls:/app/crawls
-      - ./crawl.py:/app/crawl.py

@@ -6,11 +6,5 @@ services:
 
   frontend:
     image: "%%REGISTRY_PATH%%/frontend:%%TAG_APPEND%%"
-
-# NOTE: must create an external network known as elastic
-# on the swarm host.
-# docker network create -d overlay elastic
-networks:
-  elastic:
-    external:
-      name: elastic
+    ports:
+      - 5001:5000

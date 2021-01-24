@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  frontend:
+    entrypoint: ["npm", "run", "dev"]
+
+  scraper:
+    command: ["crawl.py", "--help"]
+    volumes:
+      - ./scrapy.cfg:/app/scrapy.cfg
+      - ./scraper:/app/scraper
+      - ./crawls:/app/crawls
+      - ./crawl.py:/app/crawl.py
