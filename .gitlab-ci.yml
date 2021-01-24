@@ -1,5 +1,5 @@
 include:
-  - "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/deploy/docker-compose/template.yml"
+  - "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/deploy/docker-compose/build.yml"
   - "https://gitlab.com/tomfordweb/gitlab-ci-templates/-/raw/deploy/docker-compose/deploy.yml"
 
 stages:
