@@ -9,6 +9,5 @@ services:
 
   frontend:
     image: "%%REGISTRY_PATH%%/frontend:%%TAG_APPEND%%"
-    command: ["start"]
     ports:
       - 5001:5000
